@@ -1,0 +1,27 @@
+generated: '2026-07-18'
+method: searched
+source: https://www.arka.com/.well-known/
+host: https://www.arka.com
+note: >-
+  Arka's storefront runs on Shopify; the /.well-known/ discovery surface is the
+  Shopify-platform OAuth/OIDC (Customer Account API) metadata plus the Universal
+  Commerce Protocol (UCP) merchant profile, both served on the arka.com domain.
+documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 200
+    file: arka-openid-configuration.json
+    note: OIDC discovery for Shopify Customer Account API (issuer shopify.com/authentication/64130646253)
+  - path: /.well-known/oauth-authorization-server
+    status: 200
+    file: arka-oauth-authorization-server.json
+    note: RFC 8414 authorization server metadata (Shopify Customer Account API)
+  - path: /.well-known/ucp
+    status: 200
+    file: arka-ucp.json
+    note: Universal Commerce Protocol (ucp.dev) merchant profile — UCP MCP endpoint, capabilities, payment handlers
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404

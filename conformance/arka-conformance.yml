@@ -1,0 +1,27 @@
+generated: '2026-07-18'
+method: searched
+source: https://www.arka.com/.well-known/
+note: >-
+  Conformance asserted from Arka's live /.well-known/ discovery surface. These are
+  Shopify-platform standards exposed on the arka.com domain, not bespoke Arka APIs.
+standards:
+  - id: oidc-discovery
+    conforms: true
+    evidence: /.well-known/openid-configuration returns 200 with issuer, jwks_uri, code_challenge_methods S256
+  - id: oauth2-authorization-server-metadata
+    conforms: true
+    evidence: /.well-known/oauth-authorization-server returns 200 (RFC 8414) with token/authorization endpoints
+  - id: oauth2
+    conforms: true
+    evidence: authorization_code + refresh_token + jwt-bearer grant types advertised
+  - id: pkce
+    conforms: true
+    evidence: code_challenge_methods_supported includes S256
+  - id: ucp
+    conforms: true
+    evidence: /.well-known/ucp returns a Universal Commerce Protocol merchant profile (ucp.dev) versions 2026-04-08, 2026-01-23
+  - id: mcp
+    conforms: true
+    evidence: UCP shopping service exposes an MCP transport endpoint (/api/ucp/mcp)
+  - id: rfc9457-problem-details
+    conforms: false

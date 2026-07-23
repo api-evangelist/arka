@@ -1,8 +1,30 @@
 aid: arka
 name: Arka
-description: Arka is a company surfaced as a portfolio company of 500-global and added to the API Evangelist
-  network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+description: >-
+  Arka is a custom packaging company that lets ecommerce brands design, order, and
+  ship eco-friendly custom boxes, mailers, and sustainable packaging online. Arka
+  offers low minimums, fast turnaround, and plug-in integrations with commerce
+  platforms including Shopify, BigCommerce, and Square so merchants can reorder
+  packaging alongside their fulfillment workflow. Arka's storefront runs on Shopify
+  and exposes a modern agent-commerce surface — a published /llms.txt, an
+  agentic-discovery sitemap, OIDC/OAuth 2.0 discovery for the Shopify Customer
+  Account API, and a Universal Commerce Protocol (UCP) MCP endpoint that lets AI
+  shopping agents search the catalog, build carts, and complete buyer-approved
+  checkouts. Surfaced as a 500 Global portfolio company and profiled here as part
+  of the API Evangelist network.
 url: https://raw.githubusercontent.com/api-evangelist/arka/refs/heads/main/apis.yml
+accessModel:
+  pricing: unknown
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Unknown
+  confidence: low
+  source: []
+  generated: '2026-07-22'
+  method: derived
+image: https://www.arka.com/cdn/shop/files/Meta-Image_8d5f53a4-fc6a-4675-aea9-a25b6f96e578.jpg
 x-type: company
 x-source: vc-portfolio
 x-backed-by:
@@ -11,9 +33,16 @@ x-tier: stub
 x-tier-reason: portfolio-lead
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-18'
 tags:
 - Company
+- Packaging
+- Custom Packaging
+- Ecommerce
+- Sustainability
+- Commerce
+- Agentic Commerce
+- Shopify
 apis: []
 maintainers:
 - FN: Kin Lane
@@ -23,3 +52,30 @@ maintainers:
 common:
 - type: Website
   url: https://arka.com
+- type: Blog
+  url: https://www.arka.com/blogs/news
+- type: Support
+  url: https://www.arka.com/pages/contact-us
+- type: HelpCenter
+  url: https://www.arka.com/pages/faq
+- type: SignUp
+  url: https://www.arka.com/account/login
+- type: PrivacyPolicy
+  url: https://www.arka.com/policies/privacy-policy
+- type: TermsOfService
+  url: https://www.arka.com/policies/terms-of-service
+- type: LLMsTxt
+  url: llms/arka-llms.txt
+- type: WellKnown
+  url: well-known/arka-well-known.yml
+- type: MCPServer
+  url: mcp/arka-mcp.yml
+- type: Conformance
+  url: conformance/arka-conformance.yml
+- type: DomainSecurity
+  url: security/arka-domain-security.yml
+x-enrichment:
+  date: '2026-07-19'
+  status: backfilled
+  pass: local-v1
+  note: backfilled from .gitignore signal + verified work evidence

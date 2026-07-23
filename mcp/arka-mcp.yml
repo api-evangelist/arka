@@ -1,0 +1,40 @@
+generated: '2026-07-18'
+method: searched
+status: published
+source: https://www.arka.com/llms.txt
+note: >-
+  Arka's storefront (Shopify) exposes an agent-commerce surface via the Universal
+  Commerce Protocol (UCP, ucp.dev). The MCP endpoint and tool flow below are
+  documented in arka.com's own /llms.txt and /.well-known/ucp; the transport and
+  schemas are the Shopify-native UCP implementation served on the arka.com domain.
+server:
+  name: arka-ucp-shopping
+  transport: http
+  protocol: ucp
+  ucp_versions:
+    - '2026-04-08'
+    - '2026-01-23'
+  url: https://www.arka.com/api/ucp/mcp
+  canonical_url: https://arkainc.myshopify.com/api/ucp/mcp
+  schema: https://ucp.dev/2026-04-08/services/shopping/mcp.openrpc.json
+  discovery: https://www.arka.com/.well-known/ucp
+tools:
+  - name: search_catalog
+    description: Search the store catalog for products matching the buyer's intent.
+    source: https://www.arka.com/llms.txt
+  - name: create_cart
+    description: Create a cart and add the desired items.
+    source: https://www.arka.com/llms.txt
+  - name: create_checkout
+    description: Start the purchase/checkout flow for a cart.
+    source: https://www.arka.com/llms.txt
+  - name: update_checkout
+    description: Set shipping address and method on an in-progress checkout.
+    source: https://www.arka.com/llms.txt
+  - name: complete_checkout
+    description: Finalize the purchase. Requires explicit buyer approval of payment.
+    source: https://www.arka.com/llms.txt
+rules:
+  - Checkout requires contemporaneous human approval of payment.
+  - MCP endpoint is rate-limited per IP; back off on HTTP 429.
+  - Pass buyer context (address_country, currency) for accurate pricing/availability.
