@@ -2,11 +2,12 @@ generated: '2026-07-18'
 method: searched
 source: https://www.arka.com/.well-known/
 host: https://www.arka.com
-note: >-
-  Arka's storefront runs on Shopify; the /.well-known/ discovery surface is the
-  Shopify-platform OAuth/OIDC (Customer Account API) metadata plus the Universal
-  Commerce Protocol (UCP) merchant profile, both served on the arka.com domain.
-documents:
+note: Arka's storefront runs on Shopify; the /.well-known/ discovery surface is the Shopify-platform OAuth/OIDC
+  (Customer Account API) metadata plus the Universal Commerce Protocol (UCP) merchant profile, both served
+  on the arka.com domain.
+hosts:
+- host: https://www.arka.com
+  documents:
   - path: /.well-known/security.txt
     status: 404
   - path: /.well-known/openid-configuration
@@ -20,8 +21,14 @@ documents:
   - path: /.well-known/ucp
     status: 200
     file: arka-ucp.json
-    note: Universal Commerce Protocol (ucp.dev) merchant profile — UCP MCP endpoint, capabilities, payment handlers
+    note: Universal Commerce Protocol (ucp.dev) merchant profile — UCP MCP endpoint, capabilities, payment
+      handlers
   - path: /.well-known/api-catalog
     status: 404
   - path: /.well-known/ai-plugin.json
     status: 404
+x-shape-fix:
+  converted: '2026-08-20'
+  from: documents
+  note: Rewritten into hosts[] -> documents[], the only shape well_known_docs() in score.rb reads. A served
+    .well-known surface recorded in any other shape scores as absent.
